@@ -1,0 +1,4 @@
+db.sqlite3
+firebase_credentials.json
+/venv
+.env
