@@ -8,12 +8,14 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class FirebaseAuthentication(authentication.TokenAuthentication):
+class FirebaseAuthentication(authentication.BaseAuthentication):
 
     def authenticate(self, request):
         firebase_id_token = request.META.get('HTTP_AUTHORIZATION')
+        print(firebase_id_token)
         try:
             decoded_token = auth.verify_id_token(firebase_id_token)
+            print(decoded_token)
             uid = decoded_token['uid']
         except auth.ExpiredIdTokenError:
             raise AuthenticationFailed('Auth token Expired')
@@ -21,7 +23,8 @@ class FirebaseAuthentication(authentication.TokenAuthentication):
             raise AuthenticationFailed('Invalid Auth token')
 
         try:
-            user, created = User.objects.get_or_create(id=uuid.UUID(uid), email=decoded_token['email'])
+            user, created = User.objects.get_or_create(email=decoded_token['email'])
+            print(user)
             return user, None
         except Exception as e:
             print(e)

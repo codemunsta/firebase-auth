@@ -117,8 +117,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'users.custom_authentication.FirebaseAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        'users.custom_authentication.FirebaseAuthentication'
+        # 'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -130,4 +130,4 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'users.User'
-FIREBASE_CONFIG = os.path.join(BASE_DIR, "firebase_credentials.json")
+FIREBASE_CONFIG = os.path.join(BASE_DIR, "test_credentials.json")
