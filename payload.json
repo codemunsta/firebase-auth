@@ -1,0 +1,28 @@
+{
+  "message": "User successfully registered",
+  "data": {
+    "firstName": "FirstName",
+    "lastName": "LastName",
+    "phone": "08090000000",
+    "email": "email@example.com",
+    "nin": "98765432182",
+    "sex": "female",
+    "dob": "9/22/2001"
+  },
+  "plan": {
+    "name": "Basic",
+    "amount": 6000,
+    "duration": "Yearly"
+  },
+  "location": {
+    "name": "Fancy Pharmacy",
+    "address": "block 1 fancy pharmacy street, exclusive address estate",
+    "lga": "Apapa",
+    "state": "Lagos"
+  },
+  "status": true
+},
+
+{
+  "endpoint": "base_url/registration/medra"
+}
